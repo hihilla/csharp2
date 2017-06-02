@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace B17_Ex02_BullsEyeConsole
 {
@@ -21,9 +20,9 @@ namespace B17_Ex02_BullsEyeConsole
             System.Console.WriteLine("Please enter number of guesses...");
             int numberOfGuesses;
             string userInput = Console.ReadLine();
-            bool isNumber;
+            bool isNumber = int.TryParse(userInput, out numberOfGuesses);
 
-            while (!(isNumber = int.TryParse(userInput, out numberOfGuesses)) || (numberOfGuesses < i_MinNumberOfGuesses)
+            while (!isNumber || (numberOfGuesses < i_MinNumberOfGuesses)
                    || (numberOfGuesses > i_MaxNumberOfGuesses))
             {
                 if (!isNumber)
@@ -34,6 +33,7 @@ namespace B17_Ex02_BullsEyeConsole
                     System.Console.WriteLine("Number not in range (4-10)");
                 }
                 userInput = Console.ReadLine();
+                isNumber = int.TryParse(userInput, out numberOfGuesses);
             }
 
             return numberOfGuesses;

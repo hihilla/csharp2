@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B17_Ex02_BullsEyeEngine", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B17_Ex02_BullsEyeConsole", "B17_Ex02_BullsEyeConsole\B17_Ex02_BullsEyeConsole.csproj", "{CCDE897A-280C-415C-9BC5-A480DAA02C39}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B252D3AC-DFD2-4240-BFD1-244BEDA58348}"
+	ProjectSection(SolutionItems) = preProject
+		Checking Report.txt = Checking Report.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
