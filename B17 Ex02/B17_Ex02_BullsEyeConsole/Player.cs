@@ -22,6 +22,7 @@ namespace B17_Ex02_BullsEyeConsole
             int numberOfGuesses;
             string userInput = Console.ReadLine();
             bool isNumber;
+
             while (!(isNumber = int.TryParse(userInput, out numberOfGuesses)) || (numberOfGuesses < i_MinNumberOfGuesses)
                    || (numberOfGuesses > i_MaxNumberOfGuesses))
             {
@@ -42,6 +43,7 @@ namespace B17_Ex02_BullsEyeConsole
         {
             List<char> userGuess = new List<char>();
             bool validGuess = false;
+
             while (!validGuess)
             {
                 System.Console.WriteLine("Please enter your next guess <A - H> or 'Q' to quite");
@@ -50,6 +52,7 @@ namespace B17_Ex02_BullsEyeConsole
                 int letterCounter = 0;
                 char previousLetter = 'Q';
                 bool validLetter = true;
+
                 for (int i = 0; i < inputWord.Length && validLetter; i += 2)
                 {
                     currentInputLetter = inputWord[i];
@@ -76,12 +79,7 @@ namespace B17_Ex02_BullsEyeConsole
                     previousLetter = currentInputLetter;
                 }
 
-                if (letterCounter != 4)
-                {
-                    validGuess = false;
-                    userGuess.Clear();
-                }
-                else if (!validLetter)
+                if (letterCounter != 4 || !validLetter)
                 {
                     validGuess = false;
                     userGuess.Clear();
@@ -90,7 +88,6 @@ namespace B17_Ex02_BullsEyeConsole
                 {
                     validGuess = true;
                 }
-
             }
 
             return userGuess;
@@ -100,6 +97,7 @@ namespace B17_Ex02_BullsEyeConsole
         {
             bool inRange = false;
             inRange = (i_Letter >= 'A') && (i_Letter <= 'H');
+
             return inRange;
         }
     }

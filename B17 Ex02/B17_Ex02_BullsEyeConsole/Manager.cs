@@ -26,6 +26,7 @@ namespace B17_Ex02_BullsEyeConsole
                 return m_KeepPlaying;
             }
         }
+
         public bool PlayerWins
         {
             get
@@ -33,6 +34,7 @@ namespace B17_Ex02_BullsEyeConsole
                 return m_PlayerWins;
             }
         }
+
         public int CurrentRound
         {
             get
@@ -44,12 +46,13 @@ namespace B17_Ex02_BullsEyeConsole
         public void GameOn()
         {
             B17_Ex02_BullsEyeEngine.Game game = new B17_Ex02_BullsEyeEngine.Game();
-            game.randomizeNewWord();
+            game.RandomizeNewWord();
             Player player = new Player();
 
             m_PlayersNumberOfRounds = player.ChooseNumberOfGuesses(game.MinNumberOfGuesses,
                                                                    game.MaxNumberOfGuesses);
             PrintBoard();
+
             for (m_CurrentRound = 1; m_CurrentRound < m_PlayersNumberOfRounds + 1 && !player.QuiteGame && !m_PlayerWins; m_CurrentRound++)
             {
                 List<char> userGuess = player.GuessWord();
@@ -59,11 +62,13 @@ namespace B17_Ex02_BullsEyeConsole
                     m_CurrentRound--;
                     return;
                 }
+
                 List<char> guessFeedback = game.FeedbackForPlayerGuess(userGuess);
                 if (isWin(guessFeedback))
                 {
                     m_PlayerWins = true;
                 }
+
                 m_ListOfPlayerGuesses.Add(userGuess);
                 m_ListOfGuessesFeedback.Add(guessFeedback);
                 addRoundToResults(userGuess, guessFeedback);
@@ -104,12 +109,13 @@ namespace B17_Ex02_BullsEyeConsole
         private bool isWin(List<char> i_Feedback)
         {
             bool isWin = true;
+
             foreach (char letter in i_Feedback)
             {
                 isWin = isWin && (letter == 'V');
             }
+
             return isWin;
         }
-
     }
 }

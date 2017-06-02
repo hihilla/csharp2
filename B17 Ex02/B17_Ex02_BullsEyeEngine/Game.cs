@@ -30,7 +30,7 @@ namespace B17_Ex02_BullsEyeEngine
             }
         }
 
-        public void randomizeNewWord()
+        public void RandomizeNewWord()
         {
             List<char> wordToReturn = new List<char>();
             Random random = new Random();
@@ -47,8 +47,8 @@ namespace B17_Ex02_BullsEyeEngine
                 {
                     i--;
                 }
-
             }
+
             m_WordToGuess = wordToReturn;
         }
 
@@ -74,7 +74,6 @@ namespace B17_Ex02_BullsEyeEngine
                 }
             }
 
-
             for (int i = 0; i < counterInPlace; i++)
             {
                 feedbackOnGuess.Add('V');
@@ -93,7 +92,7 @@ namespace B17_Ex02_BullsEyeEngine
             return feedbackOnGuess;
         }
 
-        private List<bool> letterChecker(char letterToCheck, int indexOfLetter)
+        private List<bool> letterChecker(char i_letterToCheck, int i_indexOfLetter)
         {
             List<bool> correctnessAndPosition = new List<bool>(2);
             correctnessAndPosition.Add(false);
@@ -102,16 +101,17 @@ namespace B17_Ex02_BullsEyeEngine
 
             for (int i = 0; i < k_NumberOfLettersInWord && letterNotFound; i++)
             {
-                if (letterToCheck == m_WordToGuess[i])
+                if (i_letterToCheck == m_WordToGuess[i])
                 {
                     correctnessAndPosition[0] = true;
-                    if (indexOfLetter == i)
+                    if (i_indexOfLetter == i)
                     {
                         correctnessAndPosition[1] = true;
                     }
                     letterNotFound = false;
                 }
             }
+
             return correctnessAndPosition;
         }
     }
