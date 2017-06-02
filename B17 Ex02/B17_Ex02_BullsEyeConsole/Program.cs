@@ -22,6 +22,11 @@ namespace B17_Ex02_BullsEyeConsole
                     string winSentence = string.Format("You guessed after {0} steps!", gameManager.CurrentRound);
                     Console.WriteLine(winSentence);
                 }
+                else if (!keepPlaying)
+                {
+                    Console.WriteLine("Bye Bye");
+                    break;
+                }
                 else
                 {
                     Console.WriteLine(k_Lose);
