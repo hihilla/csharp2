@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace B17_Ex02_BullsEyeEngine
+namespace B17_Ex02_BullsEyeConsole
 {
     public class Manager
     {
@@ -43,9 +43,9 @@ namespace B17_Ex02_BullsEyeEngine
 
         public void GameOn()
         {
-            Game game = new Game();
+            B17_Ex02_BullsEyeEngine.Game game = new B17_Ex02_BullsEyeEngine.Game();
             game.randomizeNewWord();
-            B17_Ex02_BullsEyeConsole.Player player = new B17_Ex02_BullsEyeConsole.Player();
+            Player player = new Player();
 
             m_PlayersNumberOfRounds = player.ChooseNumberOfGuesses(game.MinNumberOfGuesses,
                                                                    game.MaxNumberOfGuesses);
