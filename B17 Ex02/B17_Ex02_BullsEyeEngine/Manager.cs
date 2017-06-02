@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace B17_Ex02_BullsEyeConsole
+namespace B17_Ex02_BullsEyeEngine
 {
-    class Manager
+    public class Manager
     {
-
         private int m_PlayersNumberOfRounds;
         private int m_CurrentRound;
         private List<List<char>> m_ListOfPlayerGuesses = new List<List<char>>();
@@ -15,10 +14,10 @@ namespace B17_Ex02_BullsEyeConsole
         private bool m_PlayerWins = false;
         private bool m_KeepPlaying = true;
         private const string k_boardStatus = "Current board status:";
-        private const string k_TopRow = "|Pins:    |Results:|";
+        private const string k_TopRow =    "|Pins:    |Results:|";
         private const string k_Delimiter = "|=========|========|";
-        private const string k_EmptyRow = "|         |        |";
-        private const string k_FirstRow = "| # # # # |        |";
+        private const string k_EmptyRow =  "|         |        |";
+        private const string k_FirstRow =  "| # # # # |        |";
 
         public bool KeepPlaying
         {
@@ -44,9 +43,9 @@ namespace B17_Ex02_BullsEyeConsole
 
         public void GameOn()
         {
-            B17_Ex02_BullsEyeEngine.Game game = new B17_Ex02_BullsEyeEngine.Game();
+            Game game = new Game();
             game.randomizeNewWord();
-            B17_Ex02_BullsEyeEngine.Player player = new B17_Ex02_BullsEyeEngine.Player();
+            B17_Ex02_BullsEyeConsole.Player player = new B17_Ex02_BullsEyeConsole.Player();
 
             m_PlayersNumberOfRounds = player.ChooseNumberOfGuesses(game.MinNumberOfGuesses,
                                                                    game.MaxNumberOfGuesses);
