@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace B17_Ex02_BullsEyeConsole
+{
+    class program
+    {
+        private const string k_Lose = "No more guesses allowed. You Lost.";
+        private const string k_AskForNewGame = "Would you like to start a new game? (Y/N)";
+
+        public static void Main()
+        {
+            bool keepPlaying = true;
+            while (keepPlaying)
+            {
+                Engine gameEngine = new Engine();
+                gameEngine.GameOn();
+                keepPlaying = gameEngine.KeepPlaying;
+                if (gameEngine.PlayerWins)
+                {
+                    string winSentence = string.Format("You guessed after {0} steps!", gameEngine.CurrentRound);
+                    Console.WriteLine(winSentence);
+                }
+                else
+                {
+                    Console.WriteLine(k_Lose);
+                }
+                Console.WriteLine(k_AskForNewGame);
+                char answer;
+                while (!char.TryParse(Console.ReadLine(), out answer))
+                {
+                    Console.WriteLine("invalid input");
+                    Console.WriteLine(k_AskForNewGame);
+                }
+                keepPlaying = char.ToUpper(answer) == 'Y';
+                Ex02.ConsoleUtils.Screen.Clear();
+            }
+
+            //Console.ReadKey();
+        }
+
+    }
+}
