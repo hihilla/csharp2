@@ -4,7 +4,7 @@ using System.Text;
 
 namespace B17_Ex02_BullsEyeEngine
 {
-    class Game
+    public class Game
     {
         private List<char> m_WordToGuess;
         private const int k_NumberOfLettersInWord = 4;

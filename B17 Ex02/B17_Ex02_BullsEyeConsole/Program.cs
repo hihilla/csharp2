@@ -4,7 +4,7 @@ using System.Text;
 
 namespace B17_Ex02_BullsEyeConsole
 {
-    class program
+    public class Program
     {
         private const string k_Lose = "No more guesses allowed. You Lost.";
         private const string k_AskForNewGame = "Would you like to start a new game? (Y/N)";

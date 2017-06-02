@@ -44,9 +44,9 @@ namespace B17_Ex02_BullsEyeConsole
 
         public void GameOn()
         {
-            Game game = new Game();
+            B17_Ex02_BullsEyeEngine.Game game = new B17_Ex02_BullsEyeEngine.Game();
             game.randomizeNewWord();
-            Player player = new Player();
+            B17_Ex02_BullsEyeEngine.Player player = new B17_Ex02_BullsEyeEngine.Player();
 
             m_PlayersNumberOfRounds = player.ChooseNumberOfGuesses(game.MinNumberOfGuesses,
                                                                    game.MaxNumberOfGuesses);
