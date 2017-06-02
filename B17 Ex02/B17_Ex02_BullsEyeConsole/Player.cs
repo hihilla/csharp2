@@ -21,13 +21,20 @@ namespace B17_Ex02_BullsEyeConsole
             System.Console.WriteLine("Please enter number of guesses...");
             int numberOfGuesses;
             string userInput = Console.ReadLine();
-            while (!int.TryParse(userInput, out numberOfGuesses)
-                   || (numberOfGuesses < i_MinNumberOfGuesses)
+            bool isNumber;
+            while (!(isNumber = int.TryParse(userInput, out numberOfGuesses)) || (numberOfGuesses < i_MinNumberOfGuesses)
                    || (numberOfGuesses > i_MaxNumberOfGuesses))
             {
-                System.Console.WriteLine("invalid, try again");
+                if (!isNumber)
+                {
+                    System.Console.WriteLine("Please only use numbers (4-10)");
+                } else
+                {
+                    System.Console.WriteLine("Number not in range (4-10)");
+                }
                 userInput = Console.ReadLine();
             }
+
             return numberOfGuesses;
         }
 
