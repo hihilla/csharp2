@@ -50,7 +50,7 @@ namespace B17_Ex02_BullsEyeConsole
             m_PlayersNumberOfRounds = player.ChooseNumberOfGuesses(game.MinNumberOfGuesses,
                                                                    game.MaxNumberOfGuesses);
             PrintBoard();
-            for (m_CurrentRound = 0; m_CurrentRound < m_PlayersNumberOfRounds && !player.QuiteGame && !m_PlayerWins; m_CurrentRound++)
+            for (m_CurrentRound = 1; m_CurrentRound < m_PlayersNumberOfRounds + 1 && !player.QuiteGame && !m_PlayerWins; m_CurrentRound++)
             {
                 List<char> userGuess = player.GuessWord();
                 if (player.QuiteGame)

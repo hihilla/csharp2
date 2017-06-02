@@ -36,9 +36,6 @@ namespace B17_Ex02_BullsEyeConsole
                 keepPlaying = char.ToUpper(answer) == 'Y';
                 Ex02.ConsoleUtils.Screen.Clear();
             }
-
-            //Console.ReadKey();
         }
-
     }
 }
