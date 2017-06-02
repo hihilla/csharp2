@@ -4,7 +4,7 @@ using System.Text;
 
 namespace B17_Ex02_BullsEyeConsole
 {
-    class Engine
+    class Manager
     {
 
         private int m_PlayersNumberOfRounds;

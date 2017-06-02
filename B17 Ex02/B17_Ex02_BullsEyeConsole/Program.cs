@@ -14,12 +14,12 @@ namespace B17_Ex02_BullsEyeConsole
             bool keepPlaying = true;
             while (keepPlaying)
             {
-                Engine gameEngine = new Engine();
-                gameEngine.GameOn();
-                keepPlaying = gameEngine.KeepPlaying;
-                if (gameEngine.PlayerWins)
+                Manager gameManager = new Manager();
+                gameManager.GameOn();
+                keepPlaying = gameManager.KeepPlaying;
+                if (gameManager.PlayerWins)
                 {
-                    string winSentence = string.Format("You guessed after {0} steps!", gameEngine.CurrentRound);
+                    string winSentence = string.Format("You guessed after {0} steps!", gameManager.CurrentRound);
                     Console.WriteLine(winSentence);
                 }
                 else

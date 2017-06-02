@@ -39,5 +39,11 @@
     <Compile Include="Manager.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\B17_Ex02_BullsEyeEngine\B17_Ex02_BullsEyeEngine.csproj">
+      <Project>{f114e169-0f09-492b-a366-046e4141d7be}</Project>
+      <Name>B17_Ex02_BullsEyeEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
