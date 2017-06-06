@@ -6,6 +6,11 @@ namespace B17_Ex02_BullsEyeConsole
     public class Player
     {
         private bool m_QuiteGame = false;
+        private readonly int k_NumberOfLettersInWord = 4;
+        private readonly int k_MinNumberOfRounds = 4;
+        private readonly int k_MaxNumberOfRounds = 10;
+        private readonly char k_FirstLetterPossible = 'A';
+        private readonly char k_LastLetterPossible = 'H';
 
         public bool QuiteGame
         {
@@ -27,10 +32,12 @@ namespace B17_Ex02_BullsEyeConsole
             {
                 if (!isNumber)
                 {
-                    System.Console.WriteLine("Please only use numbers (4-10)");
+                    System.Console.WriteLine(string.Format("Please only use numbers ({0}-{1})", 
+                                                        k_MinNumberOfRounds, k_MaxNumberOfRounds));
                 } else
                 {
-                    System.Console.WriteLine("Number not in range (4-10)");
+                    System.Console.WriteLine(string.Format("Number not in range ({0}-{1})", 
+                                                        k_MinNumberOfRounds, k_MaxNumberOfRounds));
                 }
                 userInput = Console.ReadLine();
                 isNumber = int.TryParse(userInput, out numberOfGuesses);
@@ -46,11 +53,11 @@ namespace B17_Ex02_BullsEyeConsole
 
             while (!validGuess)
             {
-                System.Console.WriteLine("Please enter your next guess <A - H> or 'Q' to quite");
+                System.Console.WriteLine(string.Format("Please enter your next guess <{0} - {1}> or 'Q' to quite", 
+                                                        k_FirstLetterPossible, k_LastLetterPossible));
                 string inputWord = Console.ReadLine().ToUpper();
                 char currentInputLetter;
                 int letterCounter = 0;
-                char previousLetter = 'Q';
                 bool validLetter = true;
 
                 for (int i = 0; i < inputWord.Length && validLetter; i += 2)
@@ -62,24 +69,24 @@ namespace B17_Ex02_BullsEyeConsole
                         m_QuiteGame = true;
                         return null;
                     }
-                    else if (currentInputLetter == previousLetter)
+                    else if (userGuess.Contains(currentInputLetter))
                     {
                         Console.WriteLine("Please use each letter only once");
                         validLetter = false;
                     }
                     else if (!inRange(currentInputLetter))
                     {
-                        Console.WriteLine("Please use only letters A - H");
+                        Console.WriteLine(string.Format("Please use only letters {0} - {1}",
+                                                k_FirstLetterPossible, k_LastLetterPossible));
                         validLetter = false;
                     }
                     else
                     {
                         userGuess.Add(currentInputLetter);
                     }
-                    previousLetter = currentInputLetter;
                 }
 
-                if (letterCounter != 4 || !validLetter)
+                if (letterCounter != k_NumberOfLettersInWord || !validLetter)
                 {
                     validGuess = false;
                     userGuess.Clear();
@@ -96,7 +103,7 @@ namespace B17_Ex02_BullsEyeConsole
         private bool inRange(char i_Letter)
         {
             bool inRange = false;
-            inRange = (i_Letter >= 'A') && (i_Letter <= 'H');
+            inRange = (i_Letter >= k_FirstLetterPossible) && (i_Letter <= k_LastLetterPossible);
 
             return inRange;
         }

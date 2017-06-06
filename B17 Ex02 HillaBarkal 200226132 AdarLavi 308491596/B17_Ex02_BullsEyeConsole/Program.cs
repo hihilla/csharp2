@@ -29,6 +29,8 @@ namespace B17_Ex02_BullsEyeConsole
                 }
                 else
                 {
+                    Console.Write("The word is ");
+                    Console.WriteLine(gameManager.GamesWord);
                     Console.WriteLine(k_Lose);
                 }
 

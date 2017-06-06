@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace B17_Ex02_BullsEyeEngine
 {
     public class Game
     {
         private List<char> m_WordToGuess;
-        private const int k_NumberOfLettersInWord = 4;
-        private const int k_MinNumberOfRounds = 4;
-        private const int k_MaxNumberOfRounds = 10;
-        private const char k_FirstLetterPossible = 'A';
-        private const char k_LastLetterPossible = 'H';
-        private const int k_MaxCharsInFeedback = 7;
+        private readonly int k_NumberOfLettersInWord = 4;
+        private readonly int k_MinNumberOfRounds = 4;
+        private readonly int k_MaxNumberOfRounds = 10;
+        private readonly char k_FirstLetterPossible = 'A';
+        private readonly char k_LastLetterPossible = 'H';
 
         public int MinNumberOfGuesses
         {
@@ -49,6 +49,16 @@ namespace B17_Ex02_BullsEyeEngine
             }
 
             m_WordToGuess = wordToReturn;
+        }
+
+        public string GetWord()
+        {
+            StringBuilder gamesWord = new StringBuilder();
+            for (int i = 0; i < k_NumberOfLettersInWord; i++)
+            {
+                gamesWord.Append(m_WordToGuess[i]);
+            }
+            return gamesWord.ToString();
         }
 
         public List<char> FeedbackForPlayerGuess(List<char> i_PlayersGuess)

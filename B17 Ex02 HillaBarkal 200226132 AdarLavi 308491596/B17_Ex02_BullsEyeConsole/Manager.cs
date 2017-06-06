@@ -8,6 +8,7 @@ namespace B17_Ex02_BullsEyeConsole
     {
         private int m_PlayersNumberOfRounds;
         private int m_CurrentRound;
+        private string m_GamesWord;
         private List<List<char>> m_ListOfPlayerGuesses = new List<List<char>>();
         private List<List<char>> m_ListOfGuessesFeedback = new List<List<char>>();
         private StringBuilder m_AllResaults = new StringBuilder();
@@ -18,6 +19,14 @@ namespace B17_Ex02_BullsEyeConsole
         private const string k_Delimiter = "|=========|========|";
         private const string k_EmptyRow =  "|         |        |";
         private const string k_FirstRow =  "| # # # # |        |";
+
+        public string GamesWord
+        {
+            get
+            {
+                return m_GamesWord;
+            }
+        }
 
         public bool KeepPlaying
         {
@@ -47,6 +56,7 @@ namespace B17_Ex02_BullsEyeConsole
         {
             B17_Ex02_BullsEyeEngine.Game game = new B17_Ex02_BullsEyeEngine.Game();
             game.RandomizeNewWord();
+            m_GamesWord = game.GetWord();
             Player player = new Player();
 
             m_PlayersNumberOfRounds = player.ChooseNumberOfGuesses(game.MinNumberOfGuesses,
@@ -67,6 +77,7 @@ namespace B17_Ex02_BullsEyeConsole
                 if (isWin(guessFeedback))
                 {
                     m_PlayerWins = true;
+                    m_CurrentRound--;
                 }
 
                 m_ListOfPlayerGuesses.Add(userGuess);
